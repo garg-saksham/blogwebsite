@@ -19,8 +19,11 @@ app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
 
-mongoose.connect('mongodb+srv://blog:RD8paskYC8Ayj09u@cluster0.pflplid.mongodb.net/?retryWrites=true&w=majority');
-
+mongoose.connect('mongodb+srv://saksham123:saksham123@cluster0.p6cna.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+mongoose.set('strictQuery', true);
 app.post('/register', async (req,res) => {
   const {username,password} = req.body;
   try{
